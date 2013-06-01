@@ -108,7 +108,7 @@ AddrSpace::Load(char *fileName)
     OpenFile *executable = kernel->fileSystem->Open(fileName);
     NoffHeader noffH;
     unsigned int size;
-cerr << "Load " << fileName << endl;
+
     if (executable == NULL) {
 	cerr << "Unable to open file " << fileName << "\n";
 	return FALSE;
@@ -168,6 +168,17 @@ cerr << "Load " << fileName << endl;
 			noffH.readonlyData.size, noffH.readonlyData.inFileAddr);
     }
 #endif
+
+
+
+    cout << "Loading program: " << fileName << endl;
+    cout << "Number of pages: " << numPages << endl;
+    cout << "Size of code segment: " << size << endl;
+    cout << "Virtual address of code segment: " << noffH.initData.virtualAddr << endl;
+    cout << "Size of read-only data segment: " << noffH.readonlyData.size << endl;
+    cout << "Virtual address of read-only data segment: " << noffH.readonlyData.virtualAddr << endl;
+
+
 
     delete executable;			// close file
     return TRUE;			// success

@@ -293,6 +293,10 @@ main(int argc, char **argv)
 	// ASSERTNOTREACHED();            // Execute never returns
  //      }
       space[0]->Load(userProgName);
+      cout << space[0]
+
+      NoffHeader header;
+
       kernel->currentThread->MultiProg(space, 1);
       kernel->currentThread->Yield();
 
