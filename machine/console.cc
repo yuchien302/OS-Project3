@@ -15,7 +15,10 @@
 #include "copyright.h"
 #include "console.h"
 #include "main.h"
+#include "stdlib.h"
 #include "string"
+
+using namespace std;
 
 //----------------------------------------------------------------------
 // ConsoleInput::ConsoleInput
