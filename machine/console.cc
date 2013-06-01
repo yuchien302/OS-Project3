@@ -178,9 +178,7 @@ void
 ConsoleOutput::PutString(std::string str)
 {
     ASSERT(putBusy == FALSE);
-    cerr << "fuck" << endl;
-    cerr << str.length() << " " << sizeof(str) << endl;
-    WriteFile(writeFileNo, (str.c_str()), sizeof(str));
+    WriteFile(writeFileNo, (str.c_str()), str.length());
     putBusy = TRUE;
     kernel->interrupt->Schedule(this, ConsoleTime, ConsoleWriteInt);
 }
