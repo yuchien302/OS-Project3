@@ -36,7 +36,7 @@
 #define SC_ThreadJoin   15
 
 #define SC_Add		42
-#define SC_OSPrint		43
+#define SC_OSPrint		50
 
 #ifndef IN_ASM
 
