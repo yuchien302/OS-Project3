@@ -58,6 +58,14 @@ Add:
 	j 	$31
 	.end Add
 
+	.globl OSPrint
+	.ent	OSPrint
+OSPrint:
+	addiu $2,$0,SC_OSPrint
+	syscall
+	j 	$31
+	.end OSPrint
+
 	.globl Exit
 	.ent	Exit
 Exit:

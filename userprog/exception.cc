@@ -75,6 +75,39 @@ ExceptionHandler(ExceptionType which)
 	ASSERTNOTREACHED();
 	break;
 
+      case SC_OSPrint:
+     	DEBUG(dbgSys, "Print " << kernel->machine->ReadRegister(4) << " + " << kernel->machine->ReadRegister(5) << "\n");
+	
+
+
+	int print_result;
+	print_result = SysPrint(/* int op1 */(string)kernel->machine->ReadRegister(4),
+	/* int op2 */(int)kernel->machine->ReadRegister(5));
+	
+	/* Prepare Result */
+	kernel->machine->WriteRegister(2, (int)print_result);
+
+	
+	/* Modify return point */
+	{
+	  /* set previous programm counter (debugging only)*/
+	  kernel->machine->WriteRegister(PrevPCReg, kernel->machine->ReadRegister(PCReg));
+
+	  /* set programm counter to next instruction (all Instructions are 4 byte wide)*/
+	  kernel->machine->WriteRegister(PCReg, kernel->machine->ReadRegister(PCReg) + 4);
+	  
+	  /* set next programm counter for brach execution */
+	  kernel->machine->WriteRegister(NextPCReg, kernel->machine->ReadRegister(PCReg)+4);
+	}
+
+	return;
+	
+	ASSERTNOTREACHED();
+
+	break;
+ 
+
+
       case SC_Add:
 	DEBUG(dbgSys, "Add " << kernel->machine->ReadRegister(4) << " + " << kernel->machine->ReadRegister(5) << "\n");
 	
