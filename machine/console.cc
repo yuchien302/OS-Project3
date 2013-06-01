@@ -171,3 +171,14 @@ ConsoleOutput::PutChar(char ch)
     putBusy = TRUE;
     kernel->interrupt->Schedule(this, ConsoleTime, ConsoleWriteInt);
 }
+
+void
+ConsoleOutput::PutString(string str)
+{
+    ASSERT(putBusy == FALSE);
+    WriteFile(writeFileNo, &ch, sizeof(str));
+    putBusy = TRUE;
+    kernel->interrupt->Schedule(this, ConsoleTime, ConsoleWriteInt);
+}
+
+
