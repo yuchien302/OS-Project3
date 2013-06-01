@@ -4,6 +4,6 @@
 int main(){
 	int i;
 	for( i=1;i<5;i++){
-		cerr << "In main a:" << i << endl;
+		cerr << "In main b:" << i << endl;
 	}
 }
