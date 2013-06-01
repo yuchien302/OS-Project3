@@ -29,18 +29,15 @@ int SysAdd(int op1, int op2)
 
 int SysPrint(char* input, int num){
 
-  int data[1];
+  int data[100];
   int i=0;
-  kernel->synchConsoleOut->PutChar('l');
-  kernel->synchConsoleOut->PutChar('a');
-  kernel->synchConsoleOut->PutChar('\n');
 
   do {
-    kernel->machine->ReadMem((int)input+i, 1, data);
-    kernel->synchConsoleOut->PutChar(data[0]);
+    kernel->machine->ReadMem((int)input+i, 1, data[i]);  
     i++;
   } while(data[0]!='\0');
 
+	// kernel->synchConsoleOut->PutString(data[0]);
   return i;
 }
 
