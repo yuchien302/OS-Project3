@@ -23,8 +23,9 @@
 
 #include "copyright.h"
 #include "main.h"
-#include "syscall.h"
 #include "ksyscall.h"
+#include "syscall.h"
+
 //----------------------------------------------------------------------
 // ExceptionHandler
 // 	Entry point into the Nachos kernel.  Called when a user program
