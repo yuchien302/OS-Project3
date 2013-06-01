@@ -35,7 +35,10 @@ int SysPrint(char* input, int num){
     kernel->machine->ReadMem((int)input+i, 1, data);
     kernel->synchConsoleOut->PutChar(data[0]);
     i++;
-  } while(data!='\0');
+  } while(data[0]!='\0');
+  kernel->synchConsoleOut->PutChar('l');
+  kernel->synchConsoleOut->PutChar('a');
+  kernel->synchConsoleOut->PutChar('\n');
   return i;
 }
 
