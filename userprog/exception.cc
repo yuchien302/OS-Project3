@@ -66,6 +66,14 @@ ExceptionHandler(ExceptionType which)
 	ASSERTNOTREACHED();
 	break;
 
+      case SC_Exit:
+	DEBUG(dbgSys, "Exit, initiated by user program.\n");
+
+	kernel->currentThread->Yield()
+
+	ASSERTNOTREACHED();
+	break;
+
       case SC_Add:
 	DEBUG(dbgSys, "Add " << kernel->machine->ReadRegister(4) << " + " << kernel->machine->ReadRegister(5) << "\n");
 	
