@@ -401,18 +401,18 @@ Thread::MultiProg(AddrSpace *space[], int num)
     Thread* t;
     for(int i=0; i<num; i++){
         t = new Thread("user prog");
-        t->Fork((VoidFunctionPtr) PageSimpleThread, (void*) 1 );
+        t->Fork((VoidFunctionPtr) PageSimpleThread, (void*) space[i] );
         t->space = space[i];
     }
 
 
 }
 
-void
-PageSimpleThread(int which)
+static void
+PageSimpleThread(AddrSpace *space)
 {
 
-    this->space->Execute();
+    space->Execute();
 
 }
 

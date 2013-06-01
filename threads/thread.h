@@ -127,7 +127,6 @@ class Thread {
   public:
     void SaveUserState();		// save user-level register state
     void RestoreUserState();		// restore user-level register state
-    void PageSimpleThread(int);
     void MultiProg(AddrSpace *space[], int num);
 
     AddrSpace *space;			// User code this thread is running.
