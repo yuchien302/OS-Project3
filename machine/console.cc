@@ -15,6 +15,7 @@
 #include "copyright.h"
 #include "console.h"
 #include "main.h"
+#include "string"
 
 //----------------------------------------------------------------------
 // ConsoleInput::ConsoleInput
