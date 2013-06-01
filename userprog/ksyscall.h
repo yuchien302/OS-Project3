@@ -13,7 +13,7 @@
 
 #include "kernel.h"
 #include "synchconsole.h"
-
+#include "string"
 
 
 void SysHalt()
@@ -37,7 +37,8 @@ int SysPrint(char* input, int num){
     i++;
   } while(data[i]!='\0');
 
-	// kernel->synchConsoleOut->PutString(data[0]);
+  std::string str(data);
+	kernel->synchConsoleOut->PutString(str);
   return i;
 }
 
