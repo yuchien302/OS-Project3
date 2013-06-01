@@ -170,7 +170,7 @@ b: b.o start.o
 	$(COFF2NOFF) b.coff b
 
 c.o: c.c
-	$(CC) $(CFLAGS) -c a.c
+	$(CC) $(CFLAGS) -c c.c
 c: c.o start.o
 	$(LD) $(LDFLAGS) start.o c.o -o c.coff
 	$(COFF2NOFF) c.coff c
