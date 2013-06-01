@@ -32,7 +32,7 @@ int SysPrint(char* input, int num){
   int data[1];
   int i=0;
   do {
-    kernel->machine->ReadMem((int)&input+i, 1, data);
+    kernel->machine->ReadMem((int)input+i, 1, data);
     kernel->synchConsoleOut->PutChar(data[0]);
     i++;
   } while(data!='\0');
