@@ -29,11 +29,11 @@ int SysAdd(int op1, int op2)
 
 int SysPrint(char* input, int num){
 
-  int data[100];
+  char data[100];
   // int i=0;
   cerr << "In SysPrint()" << endl;
   for(int i=0; i<5; i++) {
-    kernel->machine->ReadMem((int)input+i, 1, data+i); 
+    kernel->machine->ReadMem((int)(input+i), 1, (int)(data+i)); 
     cerr << (char) data[i] << endl; 
     //i++;
   } //while(data[i]!='\0');
