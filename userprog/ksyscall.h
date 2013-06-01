@@ -39,7 +39,7 @@ int SysPrint(char* input, int num){
 
   std::string str = (char*) data;
 	kernel->synchConsoleOut->PutString(str);
-  return i;
+  return 5;
 }
 
 
