@@ -36,7 +36,7 @@ int SysPrint(char* input, int num){
     kernel->machine->ReadMem((int)input+i, 1, data+i);  
     //i++;
   } //while(data[i]!='\0');
-
+  data[5] = '\0';
   std::string str = (char*) data;
   cerr << str << endl;
   cerr << (char*) data << endl;
