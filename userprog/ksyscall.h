@@ -33,9 +33,9 @@ int SysPrint(char* input, int num){
   int i=0;
 
   do {
-    kernel->machine->ReadMem((int)input+i, 1, data[i]);  
+    kernel->machine->ReadMem((int)input+i, 1, data+i);  
     i++;
-  } while(data[0]!='\0');
+  } while(data[i]!='\0');
 
 	// kernel->synchConsoleOut->PutString(data[0]);
   return i;
