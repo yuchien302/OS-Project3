@@ -27,14 +27,16 @@ int SysAdd(int op1, int op2)
   return op1 + op2;
 }
 
-int SysPrint(string input, int length){
+int SysPrint(char* input, int num){
 
   int data[1];
-
-  for(int i=0;i<=input.length();i++){
+  int i=0;
+  do {
     kernel->machine->ReadMem((int)&input+i, 1, data);
     kernel->synchConsoleOut->PutChar(data[0]);
-  }
+    i++;
+  } while(data!='\0');
+  return i;
 }
 
 

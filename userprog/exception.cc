@@ -81,7 +81,7 @@ ExceptionHandler(ExceptionType which)
 
 
 	int print_result;
-	print_result = SysPrint(/* int op1 */(string)kernel->machine->ReadRegister(4),
+	print_result = SysPrint(/* int op1 */(char*)kernel->machine->ReadRegister(4),
 	/* int op2 */(int)kernel->machine->ReadRegister(5));
 	
 	/* Prepare Result */

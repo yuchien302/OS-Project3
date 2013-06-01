@@ -59,7 +59,7 @@ void Halt();
  */ 
 
 int Add(int op1, int op2);
-int OSPrint(string str, int op2);
+int OSPrint(char* str, int op2);
 
 /* Address space control operations: Exit, Exec, Execv, and Join */
 
