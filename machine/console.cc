@@ -15,10 +15,8 @@
 #include "copyright.h"
 #include "console.h"
 #include "main.h"
-#include "stdlib.h"
 #include "string"
 
-using namespace std;
 
 //----------------------------------------------------------------------
 // ConsoleInput::ConsoleInput
@@ -177,7 +175,7 @@ ConsoleOutput::PutChar(char ch)
 }
 
 void
-ConsoleOutput::PutString(string str)
+ConsoleOutput::PutString(std::string str)
 {
     ASSERT(putBusy == FALSE);
     WriteFile(writeFileNo, &ch, sizeof(str));

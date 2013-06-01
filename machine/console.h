@@ -30,6 +30,7 @@
 #include "copyright.h"
 #include "utility.h"
 #include "callback.h"
+#include "string"
 
 // The following two classes define the input (and output) side of a 
 // hardware console device.  Input (and output) to the device is simulated 
@@ -76,7 +77,7 @@ class ConsoleOutput : public CallBackObj {
     void PutChar(char ch);	// Write "ch" to the console display, 
 				// and return immediately.  "callWhenDone" 
 				// will called when the I/O completes. 
-    void PutString(string str);
+    void PutString(std::string str);
     void CallBack();		// Invoked when next character can be put
 				// out to the display.
 
