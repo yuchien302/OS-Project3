@@ -361,7 +361,7 @@ ReadPartial(int fd, char *buffer, int nBytes)
 //----------------------------------------------------------------------
 
 void
-WriteFile(int fd, char *buffer, int nBytes)
+WriteFile(int fd, const char *buffer, int nBytes)
 {
     int retVal = write(fd, buffer, nBytes);
     ASSERT(retVal == nBytes);
