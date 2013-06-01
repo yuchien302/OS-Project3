@@ -285,14 +285,14 @@ main(int argc, char **argv)
 
     // finally, run an initial user program if requested to do so
     if (userProgName != NULL) {
-      AddrSpace *space[100]
+      AddrSpace *space[100];
       space[0] = new AddrSpace;
-      ASSERT(space != (AddrSpace *)NULL);
+      ASSERT(space[0] != (AddrSpace *)NULL);
  //      if (space->Load(userProgName)) {  // load the program into the space
 	// space->Execute();              // run the program
 	// ASSERTNOTREACHED();            // Execute never returns
  //      }
-      space->Load(userProgName);
+      space[0]->Load(userProgName);
       kernel->currentThread->MultiProg(space[0], 1);
       kernel->currentThread->Yield();
 
