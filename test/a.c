@@ -2,8 +2,8 @@
 
 int main(){
 	int i;
-	// OSPrint("lalala\n");
+	
 	for( i=1;i<5;i++){
-
+		OSPrint("In a\n");
 	}
 }
