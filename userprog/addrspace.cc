@@ -108,7 +108,7 @@ AddrSpace::Load(char *fileName)
     OpenFile *executable = kernel->fileSystem->Open(fileName);
     NoffHeader noffH;
     unsigned int size;
-
+cerr << "Load " << fileName << endl;
     if (executable == NULL) {
 	cerr << "Unable to open file " << fileName << "\n";
 	return FALSE;
