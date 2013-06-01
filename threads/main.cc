@@ -293,7 +293,7 @@ main(int argc, char **argv)
 	// ASSERTNOTREACHED();            // Execute never returns
  //      }
       space[0]->Load(userProgName);
-      kernel->currentThread->MultiProg(space[0], 1);
+      kernel->currentThread->MultiProg(space, 1);
       kernel->currentThread->Yield();
 
 
