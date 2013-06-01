@@ -47,7 +47,7 @@ extern int OpenForWrite(char *name);
 extern int OpenForReadWrite(char *name, bool crashOnError);
 extern void Read(int fd, char *buffer, int nBytes);
 extern int ReadPartial(int fd, char *buffer, int nBytes);
-extern void WriteFile(int fd, char *buffer, int nBytes);
+extern void WriteFile(int fd, const char *buffer, int nBytes);
 extern void Lseek(int fd, int offset, int whence);
 extern int Tell(int fd);
 extern int Close(int fd);
