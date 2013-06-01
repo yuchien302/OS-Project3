@@ -395,6 +395,15 @@ Thread::RestoreUserState()
 	kernel->machine->WriteRegister(i, userRegisters[i]);
 }
 
+
+static void
+PageSimpleThread(AddrSpace *space)
+{
+
+    space->Execute();
+
+}
+
 void 
 Thread::MultiProg(AddrSpace *space[], int num)
 {
@@ -408,13 +417,7 @@ Thread::MultiProg(AddrSpace *space[], int num)
 
 }
 
-static void
-PageSimpleThread(AddrSpace *space)
-{
 
-    space->Execute();
-
-}
 
 
 //----------------------------------------------------------------------
