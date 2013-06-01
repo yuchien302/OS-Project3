@@ -38,7 +38,9 @@ int SysPrint(char* input, int num){
   } //while(data[i]!='\0');
 
   std::string str = (char*) data;
-  str = "lalala";
+  cerr << str << endl;
+  cerr << (char*) data << endl;
+  str = "lalala\n";
 	kernel->synchConsoleOut->PutString(str);
   return 5;
 }
