@@ -70,6 +70,7 @@ ExceptionHandler(ExceptionType which)
 	DEBUG(dbgSys, "Exit, initiated by user program.\n");
 
 	kernel->currentThread->Yield()
+	return;
 
 	ASSERTNOTREACHED();
 	break;
