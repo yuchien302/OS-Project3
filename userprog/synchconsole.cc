@@ -8,6 +8,7 @@
 
 #include "copyright.h"
 #include "synchconsole.h"
+#include "string"
 
 //----------------------------------------------------------------------
 // SynchConsoleInput::SynchConsoleInput
@@ -104,6 +105,16 @@ SynchConsoleOutput::PutChar(char ch)
     consoleOutput->PutChar(ch);
     waitFor->P();
     lock->Release();
+}
+
+void
+ConsoleOutput::PutString(std::string str)
+{
+    lock->Acquire();
+    consoleOutput->PutString(str);
+    waitFor->P();
+    lock->Release();
+    
 }
 
 //----------------------------------------------------------------------

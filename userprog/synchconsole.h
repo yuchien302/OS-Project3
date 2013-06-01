@@ -16,6 +16,7 @@
 #include "callback.h"
 #include "console.h"
 #include "synch.h"
+#include "string"
 
 // The following two classes define synchronized input and output to
 // a console device
@@ -41,6 +42,7 @@ class SynchConsoleOutput : public CallBackObj {
     ~SynchConsoleOutput();
 
     void PutChar(char ch);	// Write a character, waiting if necessary
+    void PutString(std::string str);
     
   private:
     ConsoleOutput *consoleOutput;// the hardware display
