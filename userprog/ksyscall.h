@@ -31,12 +31,12 @@ int SysPrint(char* input, int num){
 
   int data[100];
   // int i=0;
-
+  cerr << "In SysPrint()" << endl;
   for(int i=0; i<5; i++) {
     kernel->machine->ReadMem((int)input+i, 1, data+i);  
     //i++;
   } //while(data[i]!='\0');
-  data[5] = '\0';
+  data[10] = '\0';
   std::string str = (char*) data;
   cerr << str << endl;
   cerr << (char*) data << endl;
