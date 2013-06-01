@@ -108,7 +108,7 @@ SynchConsoleOutput::PutChar(char ch)
 }
 
 void
-ConsoleOutput::PutString(std::string str)
+SynchConsoleOutput::PutString(std::string str)
 {
     lock->Acquire();
     consoleOutput->PutString(str);
