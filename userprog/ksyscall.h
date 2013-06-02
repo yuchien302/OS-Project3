@@ -29,6 +29,7 @@ int SysAdd(int op1, int op2)
 
 int SysPrint(char* input, int num){
 
+	cerr << "Begin SysPrint()" << endl;
   char data[100];
   char res[100];
   int i = -1;
@@ -41,9 +42,10 @@ int SysPrint(char* input, int num){
   sprintf(res, data, num);
 	std::string str = (char*) res;
 
-
+	cerr << "Begin synchConsoleOut()" << endl;
 	kernel->synchConsoleOut->PutString(res);
-  return 5;
+	cerr << "Done SysPrint()" << endl;
+  return i;
 }
 
 
