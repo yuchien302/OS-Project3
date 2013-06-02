@@ -100,6 +100,7 @@ cerr << "SC_OSPrint" << endl;
 	  /* set next programm counter for brach execution */
 	  kernel->machine->WriteRegister(NextPCReg, kernel->machine->ReadRegister(PCReg)+4);
 	}
+cerr << "SC_OSPrint done" << endl;
 
 	return;
 	
