@@ -298,7 +298,7 @@ main(int argc, char **argv)
 
 
       kernel->currentThread->MultiProg(space, 1);
-      kernel->currentThread->Yield();
+      // kernel->currentThread->Yield();
 
 
     }
