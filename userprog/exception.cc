@@ -69,8 +69,8 @@ ExceptionHandler(ExceptionType which)
 
       case SC_Exit:
 	DEBUG(dbgSys, "Exit, initiated by user program.\n");
-	SysHalt();
-	// kernel->currentThread->Yield();
+	// SysHalt();
+	kernel->currentThread->Yield();
 	return;
 
 	ASSERTNOTREACHED();
