@@ -30,12 +30,13 @@ int SysAdd(int op1, int op2)
 int SysPrint(char* input, int num){
 
   char data[100];
-  int i = 0;
+  int i = -1;
   do {
+  	i++;
     kernel->machine->ReadMem((int)input+i, 1, (int* )(data+i)); 
     cerr << data[i] << endl; 
     cerr << (data[i]!='\0') << endl;
-    i++;
+    
   } while(data[i]!='\0');
   // data[10] = '0';
   cerr << "done with" << data[i] << " " << (int) data[i] << endl;
