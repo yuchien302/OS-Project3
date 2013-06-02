@@ -37,6 +37,7 @@ int SysPrint(char* input, int num){
     i++;
   } while(data[i]!='\0');
   // data[10] = '0';
+  cerr << "done with" << data[i] << " " << (int) data[i] << endl;
   std::string str = (char*) data;
   cerr << str << endl;
 	kernel->synchConsoleOut->PutString(str);
