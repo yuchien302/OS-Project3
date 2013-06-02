@@ -77,9 +77,9 @@ ExceptionHandler(ExceptionType which)
 	break;
 
       case SC_OSPrint:
-     	DEBUG(dbgSys, "Print " << kernel->machine->ReadRegister(4) << " + " << kernel->machine->ReadRegister(5) << "\n");
+     	DEBUG(dbgSys, "Print " << kernel->machine->ReadRegister(4) << " , " << kernel->machine->ReadRegister(5) << "\n");
 	
-
+cerr << "SC_OSPrint" << endl;
 
 	int print_result;
 	print_result = SysPrint(/* int op1 */(char*)kernel->machine->ReadRegister(4),
