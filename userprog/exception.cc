@@ -85,9 +85,12 @@ cerr << "SC_OSPrint" << endl;
 	print_result = SysPrint(/* int op1 */(char*)kernel->machine->ReadRegister(4),
 	/* int op2 */(int)kernel->machine->ReadRegister(5));
 	
+cerr << "SC_OSPrint 0" << endl;
+
 	/* Prepare Result */
 	kernel->machine->WriteRegister(2, (int)print_result);
 
+cerr << "SC_OSPrint a" << endl;
 	
 	/* Modify return point */
 	{
