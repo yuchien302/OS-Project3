@@ -30,14 +30,20 @@ int SysAdd(int op1, int op2)
 int SysPrint(char* input, int num){
 
   char data[100];
+  char res[100];
   int i = -1;
   do {
   	i++;
     kernel->machine->ReadMem((int)input+i, 1, (int* )(data+i)); 
   } while(data[i]!='\0');
 
-
   std::string str = (char*) data;
+
+  int start = str.find("%d");
+
+  sprintf(res, str.c_str(), num);
+
+	cerr << res << endl;
   cerr << str << endl;
 	kernel->synchConsoleOut->PutString(str);
   return 5;
