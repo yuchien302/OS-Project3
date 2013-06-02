@@ -34,12 +34,9 @@ int SysPrint(char* input, int num){
   do {
   	i++;
     kernel->machine->ReadMem((int)input+i, 1, (int* )(data+i)); 
-    cerr << data[i] << endl; 
-    cerr << (data[i]!='\0') << endl;
-    
   } while(data[i]!='\0');
-  // data[10] = '0';
-  cerr << "done with" << data[i] << " " << (int) data[i] << endl;
+
+
   std::string str = (char*) data;
   cerr << str << endl;
 	kernel->synchConsoleOut->PutString(str);
