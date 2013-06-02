@@ -37,15 +37,12 @@ int SysPrint(char* input, int num){
     kernel->machine->ReadMem((int)input+i, 1, (int* )(data+i)); 
   } while(data[i]!='\0');
 
-  std::string str = (char*) data;
+  
+  sprintf(res, data, num);
+	std::string str = (char*) res;
 
-  int start = str.find("%d");
 
-  sprintf(res, str.c_str(), num);
-
-	cerr << res << endl;
-  cerr << str << endl;
-	kernel->synchConsoleOut->PutString(str);
+	kernel->synchConsoleOut->PutString(res);
   return 5;
 }
 
