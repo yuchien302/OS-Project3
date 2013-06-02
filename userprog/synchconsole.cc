@@ -115,6 +115,7 @@ SynchConsoleOutput::PutString(std::string str)
     cerr << "lalala0" << endl;
     cerr << waitFor->value << endl;
     waitFor->P();
+    waitFor->V();
     cerr << "lalala1" << endl;
     lock->Release();
     cerr << "lalala2" << endl;

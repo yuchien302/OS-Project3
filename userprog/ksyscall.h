@@ -40,8 +40,8 @@ int SysPrint(char* input, int num){
   
   sprintf(res, data, num);
 	std::string str = (char*) res;
-	kernel->synchConsoleOut->PutChar(res[0]);
-	// kernel->synchConsoleOut->PutString(res);
+	// kernel->synchConsoleOut->PutString(res[0]);
+	kernel->synchConsoleOut->PutString(res);
   return i;
 }
 
