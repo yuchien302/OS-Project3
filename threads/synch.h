@@ -47,7 +47,7 @@ class Semaphore {
     void V();	 	// they are both *atomic*
     void SelfTest();	// test routine for semaphore implementation
     
-  private:
+  public:
     char* name;        // useful for debugging
     int value;         // semaphore value, always >= 0
     List<Thread *> *queue;     
