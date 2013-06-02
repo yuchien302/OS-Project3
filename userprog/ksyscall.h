@@ -32,7 +32,7 @@ int SysPrint(char* input, int num){
   char data[100];
   // int i=0;
   cerr << "In SysPrint()" << endl;
-  for(int i=0; i<5; i++) {
+  for(int i=0; i<7; i++) {
     kernel->machine->ReadMem((int)input+i, 1, (int* )(data+i)); 
     cerr << (char) data[i] << endl; 
     //i++;
@@ -40,8 +40,6 @@ int SysPrint(char* input, int num){
   data[10] = '0';
   std::string str = (char*) data;
   cerr << str << endl;
-  cerr << (char*) data << endl;
-  str = "lalala\n";
 	kernel->synchConsoleOut->PutString(str);
   return 5;
 }
