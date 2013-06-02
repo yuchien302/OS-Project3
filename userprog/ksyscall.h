@@ -34,7 +34,7 @@ int SysPrint(char* input, int num){
   do {
     kernel->machine->ReadMem((int)input+i, 1, (int* )(data+i)); 
     cerr << data[i] << endl; 
-    cerr << data[i]!='\0' << endl;
+    cerr << (data[i]!='\0') << endl;
     i++;
   } while(data[i]!='\0');
   // data[10] = '0';
