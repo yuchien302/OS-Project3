@@ -409,7 +409,7 @@ Thread::MultiProg(AddrSpace *space[], int num)
 {
     Thread* t;
     for(int i=0; i<num; i++){
-        t = new Thread("user prog");
+        t = new Thread("userProg");
         t->Fork((VoidFunctionPtr) PageSimpleThread, (void*) space[i] );
         // t->space = space[i];
     }
