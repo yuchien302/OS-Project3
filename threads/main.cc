@@ -201,7 +201,6 @@ main(int argc, char **argv)
 	    // userProgName = argv[i + 1];
         i++;
         while(i<argc){
-            cerr << argv[i] << endl;
             userProg[totalUserProg] = argv[i];
             totalUserProg++;
             i++;
@@ -294,11 +293,9 @@ main(int argc, char **argv)
 #endif // FILESYS_STUB
 
     // finally, run an initial user program if requested to do so
-    if (userProgName != NULL) {
+    if (totalUserProg > 0) {
       AddrSpace *space[100];
-      cerr << totalUserProg << endl;
       for(int i=0; i<totalUserProg; i++){
-        cerr << "new userProg" << endl;
         space[i] = new AddrSpace;
         ASSERT(space[i] != (AddrSpace *)NULL);
  //      if (space->Load(userProgName)) {  // load the program into the space
