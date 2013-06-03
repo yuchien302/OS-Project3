@@ -305,8 +305,8 @@ main(int argc, char **argv)
       kernel->currentThread->MultiProg(space, totalUserProg);
 
       while(kernel->scheduler->getReadyListSize()>0){
-        kernel->scheduler->Print();
-        cerr << endl;
+        // kernel->scheduler->Print();
+        // cerr << endl;
         kernel->currentThread->Yield();
         }
 
