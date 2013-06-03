@@ -181,7 +181,7 @@ ConsoleOutput::PutString(std::string str)
     ASSERT(putBusy == FALSE);
     WriteFile(writeFileNo, (str.c_str()), str.length());
     putBusy = TRUE;
-    kernel->interrupt->Schedule(this, 0, ConsoleWriteInt);
+    kernel->interrupt->Schedule(this, 1, ConsoleWriteInt);
 }
 
 
