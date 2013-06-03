@@ -295,7 +295,7 @@ main(int argc, char **argv)
     // finally, run an initial user program if requested to do so
     if (userProgName != NULL) {
       AddrSpace *space[100];
-      for(int i; i<totalUserProg; i++){
+      for(int i=0; i<totalUserProg; i++){
         cerr << "new userProg" << endl;
         space[i] = new AddrSpace;
         ASSERT(space[i] != (AddrSpace *)NULL);
