@@ -201,8 +201,10 @@ main(int argc, char **argv)
 	    ASSERT(i + 1 < argc);
 	    // userProgName = argv[i + 1];
         i++;
+        std::string str;
         while(i<argc){
-            userProg.push_back(std::string(argv[i]));
+            str = argv[i];
+            userProg.push_back(str);
             i++;
         }
 	    
