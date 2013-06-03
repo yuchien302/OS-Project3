@@ -113,7 +113,7 @@ SynchConsoleOutput::PutString(std::string str)
     lock->Acquire();
     consoleOutput->PutString(str);
     // cerr << waitFor->value << endl;
-    // waitFor->P();
+    waitFor->P();
     lock->Release();
 }
 
