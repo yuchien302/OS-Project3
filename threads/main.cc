@@ -296,7 +296,8 @@ main(int argc, char **argv)
     if (userProgName != NULL) {
       AddrSpace *space[100];
       for(int i; i<totalUserProg; i++){
-        space[0] = new AddrSpace;
+        cerr << "new userProg" << endl;
+        space[i] = new AddrSpace;
         ASSERT(space[i] != (AddrSpace *)NULL);
  //      if (space->Load(userProgName)) {  // load the program into the space
 	// space->Execute();              // run the program
