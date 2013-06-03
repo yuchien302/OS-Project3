@@ -180,7 +180,7 @@ AddrSpace::Load(char *fileName)
     cout << "Virtual address of read-only data segment: " << noffH.readonlyData.virtualAddr << endl;
 
 
-
+        kernel->stats->numUsedPage+=numPages;
     delete executable;			// close file
     return TRUE;			// success
 }
