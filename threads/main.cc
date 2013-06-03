@@ -202,7 +202,7 @@ main(int argc, char **argv)
 	    // userProgName = argv[i + 1];
         i++;
         while(i<argc){
-            userProg.push_back(string(argv[i]));
+            userProg.push_back(std::string(argv[i]));
             i++;
         }
 	    
