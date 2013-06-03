@@ -299,8 +299,10 @@ main(int argc, char **argv)
 
       kernel->currentThread->MultiProg(space, 1);
 
-      while(kernel->scheduler->getReadyListSize()>0)
+      while(kernel->scheduler->getReadyListSize()>0){
+        kernel->scheduler->Print();
         kernel->currentThread->Yield();
+        }
 
     }
 
