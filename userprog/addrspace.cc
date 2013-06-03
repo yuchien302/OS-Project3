@@ -70,7 +70,7 @@ AddrSpace::AddrSpace()
     pageTable = new TranslationEntry[NumPhysPages];
     for (int i = 0; i < NumPhysPages; i++) {
 	pageTable[i].virtualPage = i;	// for now, virt page # = phys page #
-	pageTable[i].physicalPage = i;
+	pageTable[i].physicalPage = i+kernel->stats->numUsedPage;
 	pageTable[i].valid = TRUE;
 	pageTable[i].use = FALSE;
 	pageTable[i].dirty = FALSE;
@@ -78,7 +78,7 @@ AddrSpace::AddrSpace()
     }
     
     // zero out the entire address space
-    bzero(kernel->machine->mainMemory, MemorySize);
+    // bzero(kernel->machine->mainMemory, MemorySize);
 }
 
 //----------------------------------------------------------------------
@@ -144,18 +144,19 @@ AddrSpace::Load(char *fileName)
 
 // then, copy in the code and data segments into memory
 // Note: this code assumes that virtual address = physical address
+    int pageOffset = kernel->stats->numUsedPage * PageSize;
     if (noffH.code.size > 0) {
         DEBUG(dbgAddr, "Initializing code segment.");
 	DEBUG(dbgAddr, noffH.code.virtualAddr << ", " << noffH.code.size);
         executable->ReadAt(
-		&(kernel->machine->mainMemory[noffH.code.virtualAddr]), 
+		&(kernel->machine->mainMemory[pageOffset+noffH.code.virtualAddr]), 
 			noffH.code.size, noffH.code.inFileAddr);
     }
     if (noffH.initData.size > 0) {
         DEBUG(dbgAddr, "Initializing data segment.");
 	DEBUG(dbgAddr, noffH.initData.virtualAddr << ", " << noffH.initData.size);
         executable->ReadAt(
-		&(kernel->machine->mainMemory[noffH.initData.virtualAddr]),
+		&(kernel->machine->mainMemory[pageOffset+noffH.initData.virtualAddr]),
 			noffH.initData.size, noffH.initData.inFileAddr);
     }
 
@@ -164,7 +165,7 @@ AddrSpace::Load(char *fileName)
         DEBUG(dbgAddr, "Initializing read only data segment.");
 	DEBUG(dbgAddr, noffH.readonlyData.virtualAddr << ", " << noffH.readonlyData.size);
         executable->ReadAt(
-		&(kernel->machine->mainMemory[noffH.readonlyData.virtualAddr]),
+		&(kernel->machine->mainMemory[pageOffset+noffH.readonlyData.virtualAddr]),
 			noffH.readonlyData.size, noffH.readonlyData.inFileAddr);
     }
 #endif
