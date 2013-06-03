@@ -41,8 +41,6 @@
 #include "copyright.h"
 #undef MAIN
 
-#include <vector>
-#include <string>
 #include "main.h"
 #include "filesys.h"
 #include "openfile.h"
@@ -172,7 +170,8 @@ main(int argc, char **argv)
     int i;
     char *debugArg = "";
     char *userProgName = NULL;        // default is not to execute a user prog
-    vector<std::string> userProg;
+    char *userProg[100];
+    int totalUserProg=0;
     bool threadTestFlag = false;
     bool consoleTestFlag = false;
     bool networkTestFlag = false;
@@ -201,10 +200,9 @@ main(int argc, char **argv)
 	    ASSERT(i + 1 < argc);
 	    // userProgName = argv[i + 1];
         i++;
-        std::string str;
         while(i<argc){
-            str.assign(argv[i]);
-            userProg.push_back(str);
+            userProg[totalUserProg] = argv[i];
+            totalUserProg++;
             i++;
         }
 	    
