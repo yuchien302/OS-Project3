@@ -298,12 +298,7 @@ main(int argc, char **argv)
       for(int i=0; i<totalUserProg; i++){
         space[i] = new AddrSpace;
         ASSERT(space[i] != (AddrSpace *)NULL);
- //      if (space->Load(userProgName)) {  // load the program into the space
-	// space->Execute();              // run the program
-	// ASSERTNOTREACHED();            // Execute never returns
- //      }
         space[i]->Load(userProg[i]);
-      // space[0]->Execute(); 
         }
 
 
@@ -311,6 +306,7 @@ main(int argc, char **argv)
 
       while(kernel->scheduler->getReadyListSize()>0){
         kernel->scheduler->Print();
+        cerr << endl;
         kernel->currentThread->Yield();
         }
 
