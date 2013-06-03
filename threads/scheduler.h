@@ -31,7 +31,7 @@ class Scheduler {
     void CheckToBeDestroyed();// Check if thread that had been
     				// running needs to be deleted
     void Print();		// Print contents of ready list
-    int getReadyListSize(){return readyList.size();}
+    int getReadyListSize(){return readyList->size();}
     // SelfTest for scheduler is implemented in class Thread
     
   private:
