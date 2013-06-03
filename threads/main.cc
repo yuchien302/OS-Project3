@@ -41,10 +41,13 @@
 #include "copyright.h"
 #undef MAIN
 
+#include <vector>
+#include <string>
 #include "main.h"
 #include "filesys.h"
 #include "openfile.h"
 #include "sysdep.h"
+
 
 // global variables
 Kernel *kernel;
@@ -169,6 +172,7 @@ main(int argc, char **argv)
     int i;
     char *debugArg = "";
     char *userProgName = NULL;        // default is not to execute a user prog
+    vector<std::string> userProg;
     bool threadTestFlag = false;
     bool consoleTestFlag = false;
     bool networkTestFlag = false;
@@ -195,8 +199,13 @@ main(int argc, char **argv)
 	}
 	else if (strcmp(argv[i], "-x") == 0) {
 	    ASSERT(i + 1 < argc);
-	    userProgName = argv[i + 1];
-	    i++;
+	    // userProgName = argv[i + 1];
+        i++;
+        while(i<argc){
+            userProg.push_back(string(argv[i]));
+            i++;
+        }
+	    
 	}
 	else if (strcmp(argv[i], "-K") == 0) {
 	    threadTestFlag = TRUE;
