@@ -126,5 +126,6 @@ SynchConsoleOutput::PutString(std::string str)
 void
 SynchConsoleOutput::CallBack()
 {
+    cerr << "I'm call back at SynchConsoleOutput" << endl;
     waitFor->V();
 }
