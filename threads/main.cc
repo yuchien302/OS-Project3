@@ -203,7 +203,7 @@ main(int argc, char **argv)
         i++;
         std::string str;
         while(i<argc){
-            str = argv[i];
+            str.assign(argv[i]);
             userProg.push_back(str);
             i++;
         }
