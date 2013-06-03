@@ -299,28 +299,8 @@ main(int argc, char **argv)
 
       kernel->currentThread->MultiProg(space, 1);
 
-      cerr << kernel->scheduler->getReadyListSize() << endl;
-      kernel->scheduler->Print();
-      cerr << endl;
-      
-      kernel->currentThread->Yield();
-
-      cerr << kernel->scheduler->getReadyListSize() << endl;
-      kernel->scheduler->Print();
-      cerr << endl;
-
-      kernel->currentThread->Yield();
-
-      cerr << kernel->scheduler->getReadyListSize() << endl;
-      kernel->scheduler->Print();
-      cerr << endl;
-
-
-            kernel->currentThread->Yield();
-
-      cerr << kernel->scheduler->getReadyListSize() << endl;
-      kernel->scheduler->Print();
-      cerr << endl;
+      while(kernel->scheduler->getReadyListSize()>1)
+        kernel->currentThread->Yield();
 
     }
 
