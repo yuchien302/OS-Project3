@@ -295,18 +295,19 @@ main(int argc, char **argv)
     // finally, run an initial user program if requested to do so
     if (userProgName != NULL) {
       AddrSpace *space[100];
-      space[0] = new AddrSpace;
-      ASSERT(space[0] != (AddrSpace *)NULL);
+      for(int i; i<totalUserProg; i++){
+        space[0] = new AddrSpace;
+        ASSERT(space[i] != (AddrSpace *)NULL);
  //      if (space->Load(userProgName)) {  // load the program into the space
 	// space->Execute();              // run the program
 	// ASSERTNOTREACHED();            // Execute never returns
  //      }
-      space[0]->Load(userProgName);
+        space[i]->Load(userProg[i]);
       // space[0]->Execute(); 
+        }
 
 
-
-      kernel->currentThread->MultiProg(space, 1);
+      kernel->currentThread->MultiProg(space, totalUserProg);
 
       while(kernel->scheduler->getReadyListSize()>0){
         kernel->currentThread->Yield();
