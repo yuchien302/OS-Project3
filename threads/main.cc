@@ -201,6 +201,7 @@ main(int argc, char **argv)
 	    // userProgName = argv[i + 1];
         i++;
         while(i<argc){
+            cerr << argv[i] << endl;
             userProg[totalUserProg] = argv[i];
             totalUserProg++;
             i++;
@@ -295,6 +296,7 @@ main(int argc, char **argv)
     // finally, run an initial user program if requested to do so
     if (userProgName != NULL) {
       AddrSpace *space[100];
+      cerr << totalUserProg << endl;
       for(int i=0; i<totalUserProg; i++){
         cerr << "new userProg" << endl;
         space[i] = new AddrSpace;
