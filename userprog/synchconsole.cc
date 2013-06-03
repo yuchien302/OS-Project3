@@ -112,7 +112,6 @@ SynchConsoleOutput::PutString(std::string str)
 {
     lock->Acquire();
     consoleOutput->PutString(str);
-    // cerr << waitFor->value << endl;
     waitFor->P();
     lock->Release();
 }
@@ -126,6 +125,5 @@ SynchConsoleOutput::PutString(std::string str)
 void
 SynchConsoleOutput::CallBack()
 {
-    cerr << "I'm call back at SynchConsoleOutput" << endl;
     waitFor->V();
 }
