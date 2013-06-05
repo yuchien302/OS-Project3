@@ -305,9 +305,9 @@ main(int argc, char **argv)
       kernel->currentThread->MultiProg(space, totalUserProg);
 
       while(kernel->scheduler->getReadyListSize()>0){
-        kernel->scheduler->Print();
-        cout << endl;
-        cout << "###Context Switch###" << endl;
+        // kernel->scheduler->Print();
+        // cout << endl;
+        // cout << "###Context Switch###" << endl;
         kernel->currentThread->Yield();
         }
 
