@@ -170,7 +170,7 @@ main(int argc, char **argv)
     int i;
     char *debugArg = "";
     char *userProgName = NULL;        // default is not to execute a user prog
-    char *userProg[100];
+    char *userProg[512];
     int totalUserProg=0;
     bool threadTestFlag = false;
     bool consoleTestFlag = false;
@@ -294,7 +294,7 @@ main(int argc, char **argv)
 
     // finally, run an initial user program if requested to do so
     if (totalUserProg > 0) {
-      AddrSpace *space[100];
+      AddrSpace *space[512];
       for(int i=0; i<totalUserProg; i++){
         space[i] = new AddrSpace;
         ASSERT(space[i] != (AddrSpace *)NULL);
@@ -305,8 +305,9 @@ main(int argc, char **argv)
       kernel->currentThread->MultiProg(space, totalUserProg);
 
       while(kernel->scheduler->getReadyListSize()>0){
-        // kernel->scheduler->Print();
-        // cerr << endl;
+        kernel->scheduler->Print();
+        cout << endl;
+        cout << "###Context Switch###" << endl;
         kernel->currentThread->Yield();
         }
 

@@ -170,9 +170,12 @@ AddrSpace::Load(char *fileName)
     }
 #endif
 
-
-
-    cout << "Loading program: " << fileName << endl;
+    int pos=0;
+    for(int i=0; i<strlen(fileName); i++){
+        if(fileName[i]=='/')
+            pos = i+1;
+    }
+    cout << "Loading program: " << fileName+pos << endl;
     cout << "Number of pages: " << numPages << endl;
     cout << "Size of code segment: " << noffH.code.size << endl;
     cout << "Virtual address of code segment: " << noffH.code.virtualAddr << endl;
